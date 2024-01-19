@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<div class="container text-center mb-2 pt-2 pb-2">
+    <!-- <table class="table table-striped table-bordered"> -->
+    {% for row in board %}
+        <div class="row">
+        {% for char in row %}
+            <div class="col col-1 border"><h1>{{char}}</h1></div>
+        {% endfor %}
+        </div>
+    {% endfor %}
+    </table>
+</div>
+
+<div class="container" id="displayGuess"></div>
+
+<div class="container timer" id="timer"><span>Time remaining is 60s</span></div>
+
+<div class="container">
+    <form action="">
+        <label for="">
+            Input a word <input type="text" name="guess" id="inputGuess">
+        </label>
+        <input type="submit" value="Submit" id="btnSubmit">
+    </form>
+</div>
+
+
+<div class="container">
+    <span id="score"></span>
+</div>
+
+<div class="container">
+    <span id="topScore">Your top score is</span>
+</div>
+<div class="container">
+    <span id="timesPlayed">You've played</span>
+</div>
+
+<div class="container bg-light mt-3" id="words">
+    <h2>Words:</h2>
+    <ul id="words-list">
+
+    </ul>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+<script src="../static/guess.js"></script>
+{% endblock %}
